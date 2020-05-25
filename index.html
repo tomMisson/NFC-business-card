@@ -4,13 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tom Misson</title>
-    <script src="./Js/index.js"></script>
-    <meta http-equiv="refresh" content="3"/>
-    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
-    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+
+    <link rel="stylesheet" type="text/css" href="./CSS/styles.css">
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
-    <h1><!-- Your name here --> Tom Misson</h1>
+    <div id="content">
+        <img alt="avatar" id="avatar" height="200" src="https://tommisson.uk/static/media/profile.fb9a57c5.jpg" />
+    </div>
+    <h1>Tom Misson</h1>
     <div id="root"></div>
+    <script type="text/babel">
+        class Link extends React.Component {
+            state = {
+                cards:[
+                    {
+                        id:0,
+                        actionLink:"https://github.com/tomMisson",
+                        img:"https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"
+                    },
+                    {
+                        id:1,
+                        actionLink:"https://twitter.com/thomas_misson",
+                        img:"https://www.creativefreedom.co.uk/wp-content/uploads/2017/06/Twitter-featured.png"
+                    },
+                    {
+                        id:2,
+                        actionLink:"https://www.paypal.me/thomasmisson",
+                        img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/PayPal_Logo_Icon_2014.svg/887px-PayPal_Logo_Icon_2014.svg.png"
+                    },
+                    {
+                        id:3,
+                        actionLink:"https://tommisson.uk/",
+                        img:"https://raw.githubusercontent.com/tomMisson/blogJS/c1fbc6ecb540894ff9c057d52ea46e672d289b57/src/images/icon.svg"
+                    },
+
+                ]
+            }
+
+            render() {
+                return(
+                    <div className="cards">
+                        {
+                        this.state.cards.map(card =>
+                            <a key={card.id} alt="Card link" href={card.actionLink}><img alt="icon" src={card.img}/></a>
+                        )
+                        }
+                    </div>
+                )
+            }
+        }
+        
+        ReactDOM.render(<Link/>, document.getElementById('root'));
+    </script>
+
+    <footer>
+        <a>Email me</a>
+
+        <a>Call me</a>
+    </footer>
 </body>
 </html>
